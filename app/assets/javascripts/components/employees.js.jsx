@@ -14,7 +14,6 @@ class Employees extends React.Component{
     };
   }
   render(){
-   
     employees = this.state.employees.map( function(employee) {
       return (
         <Employee employee={employee} key={employee.id} onFireEmployee={() => this.handleFireEmployee(employee)} />
@@ -219,7 +218,6 @@ var Employee = React.createClass({
       url: '/employees/' + that.state.employee.id + '.json',
       success: function(res) {
         that.props.onFireEmployee(that.state.employee);
-        console.log('hehe')
       }
     })
   },
