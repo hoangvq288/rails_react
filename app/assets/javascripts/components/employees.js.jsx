@@ -43,7 +43,7 @@ class Employees extends React.Component{
                   <input type="text" onChange={(e) => this.handleEmailChange(e)} /><br />
                   <span style={{color: 'red'}}>{this.state.errors.email}</span>
                 </td>
-                <td><input type="checkbox" onChange={(e) => this.handleManagerChange(e)} /></td>
+                <td><input type="checkbox" checked={this.state.employee.manager} onChange={(e) => this.handleManagerChange(e)} /></td>
                 <td><button onClick={(e) => this.handleHireEmployee(e)}>Hire</button></td>
               </tr>
             </tbody>
@@ -66,7 +66,8 @@ class Employees extends React.Component{
 
   handleManagerChange(e) {
     var newEmployee = this.state.employee;
-    newEmployee.manager = e.target.value;
+    newEmployee.manager = e.target.checked;
+    console.log(newEmployee)
     this.setState({employee: newEmployee});
   }
   handleHireEmployee() {
@@ -140,7 +141,7 @@ var Employee = React.createClass({
           <td>
             <input
               type="checkbox"
-              value={this.state.employee.manager}
+              checked={this.state.employee.manager}
               onChange={(e) => this.handleManagerChange(e)} />
           </td>
           <td>
@@ -178,7 +179,7 @@ var Employee = React.createClass({
 
   handleManagerChange(e) {
     var newEmployee = this.state.employee;
-    newEmployee.manager = e.target.value;    
+    newEmployee.manager = e.target.checked;    
     this.setState({employee: newEmployee});
   },
 
