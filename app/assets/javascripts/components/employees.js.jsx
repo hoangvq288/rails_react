@@ -14,9 +14,10 @@ class Employees extends React.Component{
     };
   }
   render(){
-    employees = this.state.employees.map( function(employee) {
+    var that = this;
+    employees = that.state.employees.map( function(employee) {
       return (
-        <Employee employee={employee} key={employee.id} onFireEmployee={() => this.handleFireEmployee(employee)} />
+        <Employee employee={employee} key={employee.id} onFireEmployee={(e) => that.handleFireEmployee(employee,e)} />
       );
     });
     return (
@@ -78,7 +79,9 @@ class Employees extends React.Component{
       url: '/employees.json',
       success: function(res) {
         var newEmployeeList = that.state.employees;
+        console.log(that.state)
         newEmployeeList.push(res);
+
         that.setState({
           employees: newEmployeeList,
           employee: {
@@ -88,6 +91,7 @@ class Employees extends React.Component{
           },
           errors: {}
         });
+        console.log(that.state)
       },
       error: function(res) {
         that.setState({errors: res.responseJSON.errors})
