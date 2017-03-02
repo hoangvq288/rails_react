@@ -36,14 +36,14 @@ class Employees extends React.Component{
               {employees}
               <tr>
                 <td>
-                  <input type="text" onChange={(e) => this.handleNameChange(e)} /><br />
+                  <input type="text" value={this.state.employee.name} onChange={(e) => this.handleNameChange(e)}/><br />
                   <span style={{color: 'red'}}>{this.state.errors.name}</span>
                 </td>
                 <td>
-                  <input type="text" onChange={(e) => this.handleEmailChange(e)} /><br />
+                  <input type="text" value={this.state.employee.email} onChange={(e) => this.handleEmailChange(e)} /><br />
                   <span style={{color: 'red'}}>{this.state.errors.email}</span>
                 </td>
-                <td><input type="checkbox" checked={this.state.employee.manager} onChange={(e) => this.handleManagerChange(e)} /></td>
+                <td><input type="checkbox" value={this.state.employee.manager} checked={this.state.employee.manager} onChange={(e) => this.handleManagerChange(e)} /></td>
                 <td><button onClick={(e) => this.handleHireEmployee(e)}>Hire</button></td>
               </tr>
             </tbody>
