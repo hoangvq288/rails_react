@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+employees = [
+  {name: "hoang", email: "hoang.vu@codebox.vn"},
+  {name: "hoang123", email: "hoang.vu288@codebox.vn"}
+]
+
+employees.each do |emp|
+  Employee.find_or_create_by(emp)
+end
